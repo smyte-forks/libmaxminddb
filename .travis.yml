@@ -1,19 +1,10 @@
 sudo: false
 
-addons:
-  apt:
-    packages:
-      - libipc-run3-perl
-  coverity_scan:
-    project:
-      name: "maxmind/libmaxminddb"
-      description: "Build submitted via Travis CI"
-    notification_email: dev@maxmind.com
-    build_command_prepend: "./configure; make clean"
-    build_command:   "make -j 4"
-    branch_pattern: .*coverity.*
-
 language: c
+
+os:
+  - linux
+  - osx
 
 compiler:
   - clang
@@ -34,6 +25,19 @@ notifications:
       - dev@maxmind.com
     on_success: change
     on_failure: always
+
+addons:
+  apt:
+    packages:
+      - libipc-run3-perl
+  coverity_scan:
+    project:
+      name: "maxmind/libmaxminddb"
+      description: "Build submitted via Travis CI"
+    notification_email: dev@maxmind.com
+    build_command_prepend: "./configure; make clean"
+    build_command:   "make -j 4"
+    branch_pattern: .*coverity.*
 
 env:
   global:
