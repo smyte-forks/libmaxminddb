@@ -11,7 +11,7 @@ check_PROGRAMS = \
 	ipv6_lookup_in_ipv4_t metadata_t no_map_get_value_t read_node_t \
 	threads_t version_t
 
-threads_t_CFLAGS = $(CFLAGS) -pthread
+threads_t_CFLAGS = $(CFLAGS) $(PTHREAD_CFLAGS)
 
 TESTS = $(check_PROGRAMS) compile_c++_t.pl mmdblookup_t.pl
 

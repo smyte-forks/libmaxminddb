@@ -3,6 +3,9 @@
 
 AC_PREREQ([2.63])
 AC_INIT([libmaxminddb], [1.1.1], [support@maxmind.com])
+
+m4_include([m4/ax_pthread.m4])
+
 AC_CONFIG_SRCDIR([include/maxminddb.h])
 AC_CONFIG_HEADERS([config.h include/maxminddb_config.h])
 
@@ -77,6 +80,7 @@ case $host_os in
         ;;
 esac
 
+AX_PTHREAD
 
 # This check is backwards in order to make life easier for people writing
 # extensions in other languages that link to this library. If they want to
