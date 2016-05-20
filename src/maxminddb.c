@@ -1,3 +1,7 @@
+// Required for MAP_LOCKED
+#define _BSD_SOURCE
+
+
 #if HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -364,7 +368,7 @@ LOCAL int map_file(MMDB_s *const mmdb)
     }
 
     uint8_t *file_content =
-        (uint8_t *)mmap(NULL, size, PROT_READ, MAP_SHARED, fd, 0);
+        (uint8_t *)mmap(NULL, size, PROT_READ, MAP_SHARED|MAP_LOCKED, fd, 0);
     if (MAP_FAILED == file_content) {
         if (ENOMEM == errno) {
             status = MMDB_OUT_OF_MEMORY_ERROR;
