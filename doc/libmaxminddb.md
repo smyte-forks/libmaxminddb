@@ -431,6 +431,7 @@ before returning.
 The flags currently provided are:
 
 * `MMDB_MODE_MMAP` - open the database with `mmap()`.
+* `MMDB_MODE_MEMORY` - load the full database into memory.
 
 Passing in other values for `flags` may yield unpredictable results. In the
 future we may add additional flags that you can bitwise-or together with the

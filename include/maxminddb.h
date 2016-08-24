@@ -61,6 +61,7 @@ typedef ADDRESS_FAMILY sa_family_t;
 
 /* flags for open */
 #define MMDB_MODE_MMAP (1)
+#define MMDB_MODE_MEMORY (2)
 #define MMDB_MODE_MASK (7)
 
 /* error codes */
